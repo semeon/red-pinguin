@@ -1,0 +1,29 @@
+{
+  "name": "red-pinguin",
+  "version": "1.0.0",
+  "description": "do or do not, there is no try",
+  "main": "root/main.js",
+  "scripts": {
+    "train": "babel-node app/main.js train",
+    "gen": "babel-node app/main.js generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-tools": "^2.0.9",
+    "array-unique": "^0.3.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-root-slash-import": "^1.1.0",
+    "chance": "^1.0.4",
+    "convnetjs": "^0.3.0",
+    "jsonfile": "^2.4.0",
+    "read-file": "^0.2.0",
+    "sort-object": "^3.0.2",
+    "sorted-array": "^2.0.1",
+    "split-string-words": "^1.0.0",
+    "string": "^3.3.3"
+  }
+}
