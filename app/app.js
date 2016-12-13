@@ -30,7 +30,6 @@ export class Application {
 	init() {
 		console.log("")
 		console.log("== [1] Prepare Network ==================")
-
 		console.log(" Name:", settings.name)
 		console.log(" Pattern Length:", settings.patternLength)
 
@@ -38,6 +37,8 @@ export class Application {
 		this.vocab.init({words:this.preProcessor.getWords()})
 		this.patternVol.init({lines:this.preProcessor.getLines()})
 		this.nn.init()
+
+		console.log(" Patterns Number:", this.patternVol.getSize())
 		console.log(" Network and dictionaries are ready.")	
 	}
 
