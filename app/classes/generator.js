@@ -31,7 +31,7 @@ export class Generator {
 		// console.log("SEED: " + newLine)
 
 
-		for (let i=0; i<100; i++) {
+		for (let i=0; i<200; i++) {
 			// console.log("")
 			// console.log("------ Step: " + i + " --------------")
 			// console.log("sequence: " + sequence)
