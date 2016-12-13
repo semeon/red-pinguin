@@ -1,5 +1,6 @@
 import {settings}				from '/app/settings.js'
 
+const moment = require('moment');
 const convnetjs = require("convnetjs")  // http://cs.stanford.edu/people/karpathy/convnetjs/docs.html
 const sortObj = require('sort-object');
 const jsonfile = require('jsonfile')
@@ -41,8 +42,10 @@ export class Network {
 			trainingData.push(td)
 		}
 
-		let itCounter = 0
 
+		let startTime = moment();
+
+		let itCounter = 0
 		// training iterations
 		for (let i=0; i<this.trainingIterations; i++) {
 			for (let j=0; j<trainingData.length; j++) {
@@ -57,13 +60,28 @@ export class Network {
 			if (this.trainingIterations > 50) step = 10
 			
 			if (i%step == 0) {
-				console.log("  iteration:", i+1, "of", this.trainingIterations)
+				console.log(" " + moment().format("YYYY-MM-DD HH:mm:ss") + " iteration:", i+1, "of", this.trainingIterations)
 			}
 			
 			itCounter++
 		}
-		console.log(" Training completed (" + itCounter+ " iterations).")
+		
+		let endTime = moment()
+		
+		let totalDurationMs = endTime.diff(startTime)
+		let totalDuration = moment.duration(totalDurationMs).asHours()
+		totalDuration = Math.round(totalDuration * 100) / 100
+		
+		let iterationDurationMS = totalDurationMs / itCounter
+		let iterationDuration = moment.duration(iterationDurationMS).asSeconds()
+		iterationDuration = Math.round(iterationDuration * 100) / 100
+		
+		console.log(" Training completed. Stats:")
+		console.log("   - Total iterations:   " + itCounter)
+		console.log("   - Total time:         " + totalDuration + " hours")
+		console.log("   - Avg iteration time: " + iterationDuration + " seconds")
 	}
+
 	
 	save() {
 		let nnJson = this.net.toJSON()
