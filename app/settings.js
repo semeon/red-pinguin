@@ -4,12 +4,12 @@ export let settings = {}
 settings.name = 'trump'
 
 // trainer
-settings.patternLength = 3
-settings.tranIterations = 1000
+settings.patternLength = 4
+settings.tranIterations = 2000
 
 // generator
-settings.outputLines = 20
-settings.outputLineLength = 140
+settings.outputLines = 40
+settings.outputLineLength = 200
 
 // pre-processing
 settings.sourceFileName 			= 'data/1-raw/' + settings.name + '.txt'
